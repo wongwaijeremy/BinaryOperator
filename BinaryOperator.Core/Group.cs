@@ -27,9 +27,16 @@ namespace BinaryOperator.Core
         private bool IsValid(T a, T b, T c) => Operator(Operator(a , b) , c).Equals(Operator(a , Operator(b , c)));
     }
 
-    public interface IMonoid<T> : ISemigroup<T>
+    public class Monoid<T> : Semigroup<T>, IIdentity<T>
+        where T: class
     {
-        T Identity {get;}
+        public T Identity {get;}
+        internal Monoid(Func<T, T, T> operatorExpression, T identity) : base(operatorExpression)
+        {
+            Identity = identity;
+        }
+        public static Monoid<T> From(Func<T, T, T> operatorExpression, T identity) => new Monoid<T>(operatorExpression, identity);
+        private bool IsValid(T a) => Operator(a, Identity).Equals(Operator(Identity, a));
     }
     public interface IGroup<T> : IMonoid<T>
     {
