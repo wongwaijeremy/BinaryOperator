@@ -2,7 +2,6 @@
 
 namespace BinaryOperator.Core
 {
-    //https://antimatroid.wordpress.com/2012/04/01/abstract-algebra-in-c/
     public class Groupoid<T> : IClosable<T>
         where T: class
     {
@@ -48,14 +47,22 @@ namespace BinaryOperator.Core
         {
             InverseFunction = inverseFunction;
         }
-        public static Group<T> From(Func<T, T, T> operatorExpression, T identity, Func<T, T> inverseFunction) => 
+        public static Group<T> From(Func<T, T, T> operatorExpression, T identity, Func<T, T> inverseFunction) =>
             new Group<T>(operatorExpression, identity, inverseFunction);
 
         public Func<T, T> InverseFunction { get; }
-        
+
         public T Inverse(T t) => InverseFunction(t);
     }
-    public interface IAbelianGroup<T> : IGroup<T>
-    {        
+    public class AbelianGroup<T> : Group<T>, ICommutable<T>
+        where T : class
+    {
+        internal AbelianGroup(Func<T, T, T> operatorExpression, T identity, Func<T, T> inverseFunction)
+            : base(operatorExpression, identity, inverseFunction)
+        {
+        }
+        public new static AbelianGroup<T> From(Func<T, T, T> operatorExpression, T identity, Func<T, T> inverseFunction) =>
+            new AbelianGroup<T>(operatorExpression, identity, inverseFunction);
+        private bool IsValid(T a, T b) => Operator(a, b).Equals(Operator(b, a));
     }
 }
