@@ -5,7 +5,7 @@ namespace BinaryOperator.Core
     public class Groupoid<T> : IClosable<T>
         where T: class
     {
-        public Func<T, T, T> Operator { get; private set; }
+        public Func<T, T, T> Operator { get; }
         public static Groupoid<T> From(Func<T, T, T> operatorExpression) => new Groupoid<T>(operatorExpression);
         internal Groupoid(Func<T, T, T> operatorExpression)
         {
@@ -53,6 +53,7 @@ namespace BinaryOperator.Core
         public Func<T, T> InverseFunction { get; }
 
         public T Inverse(T t) => InverseFunction(t);
+        public AbelianGroup<T> ToAbelianGroup() => AbelianGroup<T>.From(Operator, Identity, InverseFunction);
     }
     public class AbelianGroup<T> : Group<T>, ICommutable<T>
         where T : class
