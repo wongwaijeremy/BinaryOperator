@@ -24,6 +24,7 @@ namespace BinaryOperator.Core
         internal Semigroup(Func<T, T, T> operatorExpression) : base(operatorExpression)
         {
         }
+        public Monoid<T> ToMonoid(T identity) => Monoid<T>.From(Operator, identity);
         private bool IsValid(T a, T b, T c) => Operator(Operator(a , b) , c).Equals(Operator(a , Operator(b , c)));
     }
 
@@ -36,11 +37,23 @@ namespace BinaryOperator.Core
             Identity = identity;
         }
         public static Monoid<T> From(Func<T, T, T> operatorExpression, T identity) => new Monoid<T>(operatorExpression, identity);
+        public Group<T> ToGroup(Func<T, T> inverseFunction) => Group<T>.From(Operator, Identity, inverseFunction);
         private bool IsValid(T a) => Operator(a, Identity).Equals(Operator(Identity, a));
     }
-    public interface IGroup<T> : IMonoid<T>
+    public class Group<T> : Monoid<T>, IInverse<T>
+        where T: class
     {
-        T Inverse(T t);
+        internal Group(Func<T, T, T> operatorExpression, T identity, Func<T, T> inverseFunction)
+            : base(operatorExpression, identity)
+        {
+            InverseFunction = inverseFunction;
+        }
+        public static Group<T> From(Func<T, T, T> operatorExpression, T identity, Func<T, T> inverseFunction) => 
+            new Group<T>(operatorExpression, identity, inverseFunction);
+
+        public Func<T, T> InverseFunction { get; }
+        
+        public T Inverse(T t) => InverseFunction(t);
     }
     public interface IAbelianGroup<T> : IGroup<T>
     {        
