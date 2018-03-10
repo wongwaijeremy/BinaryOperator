@@ -16,6 +16,9 @@ namespace BinaryOperator.Core
         public Semigroup<T> ToSemigroup() => Semigroup<T>.From(Operator);
     }
 
+
+
+
     public class Semigroup<T> : Groupoid<T>, IAssociable<T>
         where T: class
     {
@@ -26,6 +29,9 @@ namespace BinaryOperator.Core
         public Monoid<T> ToMonoid(T identity) => Monoid<T>.From(Operator, identity);
         private bool IsValid(T a, T b, T c) => Operator(Operator(a , b) , c).Equals(Operator(a , Operator(b , c)));
     }
+
+
+
 
     public class Monoid<T> : Semigroup<T>, IIdentity<T>
         where T: class
@@ -39,6 +45,10 @@ namespace BinaryOperator.Core
         public Group<T> ToGroup(Func<T, T> inverseFunction) => Group<T>.From(Operator, Identity, inverseFunction);
         private bool IsValid(T a) => Operator(a, Identity).Equals(Operator(Identity, a));
     }
+
+
+
+
     public class Group<T> : Monoid<T>, IInverse<T>
         where T: class
     {
@@ -55,6 +65,10 @@ namespace BinaryOperator.Core
         public T Inverse(T t) => InverseFunction(t);
         public AbelianGroup<T> ToAbelianGroup() => AbelianGroup<T>.From(Operator, Identity, InverseFunction);
     }
+
+
+
+    
     public class AbelianGroup<T> : Group<T>, ICommutable<T>
         where T : class
     {
