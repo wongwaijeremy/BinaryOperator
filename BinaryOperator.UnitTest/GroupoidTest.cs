@@ -4,13 +4,13 @@ using BinaryOperator.Core;
 
 namespace BinaryOperator.UnitTest
 {
-    public class UnitTest1
-    {
+    public class GroupoidTest
+    {    
         [Fact]
-        public void Test1()
+        public void GroupoidOperationTest()
         {
             var intGroupoid = Groupoid<int>.From((a, b) => a + b);
-            Assert.True(intGroupoid.Operation(1, 2) == 3);
+            Assert.Same(intGroupoid.Operation(1, 2), 3);
         }
     }
 }
