@@ -2,8 +2,7 @@
 
 namespace BinaryOperator.Core
 {
-    public class Groupoid<T> : IClosable<T>
-        where T: class
+    public class Groupoid<T> : IClosable<T>        
     {
         public Func<T, T, T> Operator { get; }
         public static Groupoid<T> From(Func<T, T, T> operatorExpression) => new Groupoid<T>(operatorExpression);
@@ -20,7 +19,6 @@ namespace BinaryOperator.Core
 
 
     public class Semigroup<T> : Groupoid<T>, IAssociable<T>
-        where T: class
     {
         public new static Semigroup<T> From(Func<T, T, T> operatorExpression) => new Semigroup<T>(operatorExpression);
         internal Semigroup(Func<T, T, T> operatorExpression) : base(operatorExpression)
@@ -34,7 +32,6 @@ namespace BinaryOperator.Core
 
 
     public class Monoid<T> : Semigroup<T>, IIdentity<T>
-        where T: class
     {
         public T Identity {get;}
         internal Monoid(Func<T, T, T> operatorExpression, T identity) : base(operatorExpression)
@@ -50,7 +47,6 @@ namespace BinaryOperator.Core
 
 
     public class Group<T> : Monoid<T>, IInverse<T>
-        where T: class
     {
         internal Group(Func<T, T, T> operatorExpression, T identity, Func<T, T> inverseFunction)
             : base(operatorExpression, identity)
@@ -70,7 +66,6 @@ namespace BinaryOperator.Core
 
     
     public class AbelianGroup<T> : Group<T>, ICommutable<T>
-        where T : class
     {
         internal AbelianGroup(Func<T, T, T> operatorExpression, T identity, Func<T, T> inverseFunction)
             : base(operatorExpression, identity, inverseFunction)

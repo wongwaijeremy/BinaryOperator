@@ -1,0 +1,3 @@
+C:\Users\a\Documents\WORK\workspace\Github\BinaryOperator\BinaryOperator.UnitTest\obj\Debug\netcoreapp2.0\BinaryOperator.UnitTest.csproj.CoreCompileInputs.cache
+C:\Users\a\Documents\WORK\workspace\Github\BinaryOperator\BinaryOperator.UnitTest\obj\Debug\netcoreapp2.0\BinaryOperator.UnitTest.AssemblyInfoInputs.cache
+C:\Users\a\Documents\WORK\workspace\Github\BinaryOperator\BinaryOperator.UnitTest\obj\Debug\netcoreapp2.0\BinaryOperator.UnitTest.AssemblyInfo.cs

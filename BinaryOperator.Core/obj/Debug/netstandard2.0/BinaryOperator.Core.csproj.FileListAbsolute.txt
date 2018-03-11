@@ -1,0 +1,8 @@
+C:\Users\a\Documents\WORK\workspace\Github\BinaryOperator\BinaryOperator.Core\bin\Debug\netstandard2.0\BinaryOperator.Core.deps.json
+C:\Users\a\Documents\WORK\workspace\Github\BinaryOperator\BinaryOperator.Core\bin\Debug\netstandard2.0\BinaryOperator.Core.dll
+C:\Users\a\Documents\WORK\workspace\Github\BinaryOperator\BinaryOperator.Core\bin\Debug\netstandard2.0\BinaryOperator.Core.pdb
+C:\Users\a\Documents\WORK\workspace\Github\BinaryOperator\BinaryOperator.Core\obj\Debug\netstandard2.0\BinaryOperator.Core.csproj.CoreCompileInputs.cache
+C:\Users\a\Documents\WORK\workspace\Github\BinaryOperator\BinaryOperator.Core\obj\Debug\netstandard2.0\BinaryOperator.Core.AssemblyInfoInputs.cache
+C:\Users\a\Documents\WORK\workspace\Github\BinaryOperator\BinaryOperator.Core\obj\Debug\netstandard2.0\BinaryOperator.Core.AssemblyInfo.cs
+C:\Users\a\Documents\WORK\workspace\Github\BinaryOperator\BinaryOperator.Core\obj\Debug\netstandard2.0\BinaryOperator.Core.dll
+C:\Users\a\Documents\WORK\workspace\Github\BinaryOperator\BinaryOperator.Core\obj\Debug\netstandard2.0\BinaryOperator.Core.pdb
