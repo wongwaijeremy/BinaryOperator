@@ -1,4 +1,5 @@
 using System;
+using System.Linq.Expressions;
 
 namespace BinaryOperator.Core
 {
@@ -13,5 +14,10 @@ namespace BinaryOperator.Core
         public T Operation(T a, T b) => Operator(a, b);
 
         public Semigroup<T> ToSemigroup() => Semigroup<T>.From(Operator);
+
+        public Groupoid<TDest> Select<TDest>(Expression<Func<T, TDest>> mapper)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
