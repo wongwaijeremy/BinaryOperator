@@ -6,10 +6,10 @@ namespace BinaryOperator.Core
         T Operation(T a, T b);
     }
     public interface IAssociable<T>
-    {        
+    {
     }
     public interface ICommutable<T>
-    {        
+    {
     }
     public interface IIdentity<T>
     {
