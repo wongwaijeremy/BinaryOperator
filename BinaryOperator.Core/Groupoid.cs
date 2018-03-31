@@ -25,5 +25,7 @@ namespace BinaryOperator.Core
 
         public Groupoid<T, TNextDest> Map<TNextDest>(Func<TDest, TNextDest> mapper) =>
             new Groupoid<T, TNextDest>(Operator, t => mapper(Functor(t)));
+
+        public TDest Invoke(T domain) => Functor(domain);
     }
 }
